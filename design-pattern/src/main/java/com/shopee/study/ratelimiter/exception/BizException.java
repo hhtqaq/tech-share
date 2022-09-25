@@ -10,4 +10,5 @@ package com.shopee.study.ratelimiter.exception;
 public class BizException extends Exception{
     public BizException() {super();}
     public BizException(String message) {super(message);}
+    public BizException(String message,Exception e) {super(message,e);}
 }

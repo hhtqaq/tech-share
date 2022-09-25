@@ -2,6 +2,8 @@ package com.shopee.study.ratelimiter.rule;
 
 import lombok.Data;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author haitao.huang
  */

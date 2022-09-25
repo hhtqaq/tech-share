@@ -5,7 +5,6 @@ configs:
     limits:
     - api: /v1/user
       limit: 100
-       unit：60
     - api: /v1/order
       limit: 50
   - appId: app-2

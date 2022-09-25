@@ -1,6 +1,6 @@
 package com.shopee.study.ratelimiter;
 
-import com.shopee.study.ratelimiter.alg.RateLimitAlg;
+import com.shopee.study.ratelimiter.algorithm.RateLimitAlg;
 import com.shopee.study.ratelimiter.exception.BizException;
 import com.shopee.study.ratelimiter.rule.ApiLimit;
 import com.shopee.study.ratelimiter.rule.RateLimitRule;
@@ -27,7 +27,7 @@ public class RateLimiter {
     public RateLimiter()  {
         // 将限流规则配置文件ratelimiter-rule.yaml中的内容读取到RuleConfig中
         RuleConfig ruleConfig = null;
-        try (InputStream in = this.getClass().getResourceAsStream("ratelimiter-rule.yaml")) {
+        try (InputStream in = this.getClass().getResourceAsStream("/ratelimiter-rule.yaml")) {
             if (in != null) {
                 Yaml yaml = new Yaml();
                 ruleConfig = yaml.loadAs(in, RuleConfig.class);
@@ -50,13 +50,13 @@ public class RateLimiter {
         String counterKey = appId + ":" + apiLimit.getApi();
         RateLimitAlg rateLimitCounter = counters.get(counterKey);
         if (rateLimitCounter == null) {
-            RateLimitAlg newRateLimitCounter = new RateLimitAlg(apiLimit.getLimit());
+            RateLimitAlg newRateLimitCounter = new RateLimitAlg(apiLimit.getLimit(), apiLimit.getUnit());
             rateLimitCounter = counters.putIfAbsent(counterKey, newRateLimitCounter);
             if (rateLimitCounter == null) {
                 rateLimitCounter = newRateLimitCounter;
             }
         }
         // 判断是否限流
-        return rateLimitCounter.tryAcquire();
+        return !rateLimitCounter.tryAcquire();
     }
 }

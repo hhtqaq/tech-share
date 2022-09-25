@@ -1,0 +1,17 @@
+#<!--对应RuleConfig-->
+configs:
+  #<!--对应AppRuleConfig-->
+  - appId: app-1
+    limits:
+      - api: /v1/user
+        limit: 2
+        # 单位ms 100ms超过3触发限流
+        unit: 100
+      - api: /v1/order
+        limit: 50
+  - appId: app-2
+    limits:
+      - api: /v1/user
+        limit: 50
+      - api: /v1/order
+        limit: 50
