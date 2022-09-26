@@ -1,4 +1,4 @@
-package com.shopee.study.ratelimiter.rule;
+package com.shopee.study.ratelimiter.v1.rule;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.shopee.study.ratelimiter.exception;
+package exception;
 
 /**
  * @description: 业务异常

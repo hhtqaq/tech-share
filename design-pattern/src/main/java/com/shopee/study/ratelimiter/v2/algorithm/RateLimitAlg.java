@@ -1,7 +1,7 @@
-package com.shopee.study.ratelimiter.algorithm;
+package com.shopee.study.ratelimiter.v2.algorithm;
 
 import com.google.common.base.Stopwatch;
-import com.shopee.study.ratelimiter.exception.BizException;
+import exception.BizException;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -23,11 +23,11 @@ public class RateLimitAlg {
     private final int unit;
     private final        Lock          lock             = new ReentrantLock();
 
-    public RateLimitAlg(int limit,int unit) {
+    public RateLimitAlg(int limit, int unit) {
         this(limit,unit, Stopwatch.createStarted());
     }
 
-    protected RateLimitAlg(int limit, int unit,Stopwatch stopwatch) {
+    protected RateLimitAlg(int limit, int unit, Stopwatch stopwatch) {
         this.limit = limit;
         this.unit = unit;
         this.stopwatch = stopwatch;
@@ -36,7 +36,7 @@ public class RateLimitAlg {
     /**
      * 固定时间窗口大小限流
      */
-    public boolean tryAcquire()  throws BizException{
+    public boolean tryAcquire()  throws BizException {
         int updatedCount = currentCount.incrementAndGet();
         if (updatedCount <= limit) {
             return true;

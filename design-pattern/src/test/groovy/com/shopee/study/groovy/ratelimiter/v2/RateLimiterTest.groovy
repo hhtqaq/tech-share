@@ -1,6 +1,6 @@
-package com.shopee.study.groovy.ratelimiter
+package com.shopee.study.groovy.ratelimiter.v2
 
-import com.shopee.study.ratelimiter.RateLimiter
+import com.shopee.study.ratelimiter.v2.RateLimiter
 import spock.lang.Specification
 
 import java.util.concurrent.TimeUnit
@@ -35,7 +35,7 @@ class RateLimiterTest extends Specification {
 
         where: "测试数据"
         condition | appId   | url
-        "正例子"  | "app-1" | "/v1/user"
+        "正例"  | "app-1" | "/v1/user"
     }
 
 

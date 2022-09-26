@@ -1,10 +1,10 @@
-package com.shopee.study.ratelimiter;
+package com.shopee.study.ratelimiter.v1;
 
-import com.shopee.study.ratelimiter.algorithm.RateLimitAlg;
-import com.shopee.study.ratelimiter.exception.BizException;
-import com.shopee.study.ratelimiter.rule.ApiLimit;
-import com.shopee.study.ratelimiter.rule.RateLimitRule;
-import com.shopee.study.ratelimiter.rule.RuleConfig;
+import com.shopee.study.ratelimiter.v1.algorithm.RateLimitAlg;
+import exception.BizException;
+import com.shopee.study.ratelimiter.v1.rule.ApiLimit;
+import com.shopee.study.ratelimiter.v1.rule.RateLimitRule;
+import com.shopee.study.ratelimiter.v1.rule.RuleConfig;
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;

@@ -1,6 +1,4 @@
-package com.shopee.study.ratelimiter.rule;
-
-import lombok.Data;
+package com.shopee.study.ratelimiter.v2.rule;
 
 import java.util.List;
 
